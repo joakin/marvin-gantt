@@ -6,19 +6,6 @@
   });
   google.charts.setOnLoadCallback(drawChart);
 
-  function task({id, name, resource, startDate, endDate, duration, completeness, deps}) {
-    return [
-      id,
-      name,
-      resource || id,
-      new Date(startDate[0], startDate[1]-1, startDate[2]),
-      new Date(endDate[0], endDate[1]-1, endDate[2]),
-      duration,
-      completeness,
-      deps
-    ]
-  }
-
   var rows = [
     task({
       id: 'article_content',
@@ -66,7 +53,27 @@
       endDate: [2017, 12, 1],
       deps: 'article_content'
     }),
+    task({
+      id: 'eoq2',
+      name: 'EOQ2 cleanup & bleedthrough',
+      startDate: [2017, 12, 4],
+      endDate: [2017, 12, 15],
+    }),
   ]
+
+  function task({id, name, resource, startDate, endDate, duration, completeness, deps}) {
+    return [
+      id,
+      name,
+      resource || id,
+      new Date(startDate[0], startDate[1]-1, startDate[2]),
+      new Date(endDate[0], endDate[1]-1, endDate[2]),
+      duration,
+      completeness,
+      deps
+    ]
+  }
+
 
   function drawChart() {
     var data = new google.visualization.DataTable();
