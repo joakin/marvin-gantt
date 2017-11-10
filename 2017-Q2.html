@@ -61,13 +61,13 @@
     }),
   ]
 
-  function task({id, name, resource, startDate, endDate, duration, completeness, deps}) {
+  function task({ id, name, resource, startDate, endDate, duration, completeness, deps }) {
     return [
       id,
       name,
       resource || id,
-      new Date(startDate[0], startDate[1]-1, startDate[2]),
-      new Date(endDate[0], endDate[1]-1, endDate[2]),
+      new Date(startDate[0], startDate[1] - 1, startDate[2]),
+      new Date(endDate[0], endDate[1] - 1, endDate[2]),
       duration,
       completeness,
       deps
